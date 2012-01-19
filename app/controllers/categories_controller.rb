@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /categories
   # GET /categories.xml
   helper_method :sort_column, :sort_direction

@@ -1,0 +1,23 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+
+<table>
+  <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "parent_id" %></th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%=h category.parent ? category.parent.name : "N/A"  %></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= will_paginate @categories %>

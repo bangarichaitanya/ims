@@ -1,2 +1,18 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h1>Editing Product</h1>
+
+<%= form_for(@product) do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+    <p>
+      <%= f.label :category_id %><br/>
+      <%= f.grouped_collection_select(:category_id, Category.parent_categories, :sub_categories, :name, :id, :name, {:include_blank => '- Select -'}) %>
+    </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @category %> |
+<%= link_to 'Back', products_path %>

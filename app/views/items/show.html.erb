@@ -1,0 +1,37 @@
+<p>
+  <b>Name:</b>
+  <%=h @item.product.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h "#{@item.product.category.parent.name} - #{@item.product.category.name}" %>
+</p>
+
+<p>
+  <b>Transaction Date</b>
+  <%=h @item.transaction_date.strftime("%d-%B-%Y") %>
+</p>
+
+<p>
+  <b>Tot Qty:</b>
+  <%=h @item.qty %>
+</p>
+
+<p>
+  <b>Unit Price:</b>
+  <%=h @item.unit_price %>
+</p>
+
+<p>
+  <b>Tax:</b>
+  <%=h @item.tax %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%=h @item.qty * @item.unit_price + @item.tax %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

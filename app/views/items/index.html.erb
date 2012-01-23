@@ -1,0 +1,35 @@
+<h1>Listing Items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Action</th>
+    <th>Tran. Date</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Tax</th>
+    <th>Total</th>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.product.name %></td>
+      <td><%=h "#{item.product.category.parent.name} - #{item.product.category.name}" %></td>
+      <td><%=h item.action %></td>
+      <td><%=h item.transaction_date.strftime("%d-%m-%Y") %></td>
+      <td><%=h item.qty %></td>
+      <td><%=h item.unit_price %></td>
+      <td><%=h item.tax %></td>
+      <td><%=h item.qty * item.unit_price + item.tax %></td>
+      <td><%= link_to 'Show', item %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= will_paginate @items %>
+
+<%= link_to 'New Product', new_item_path %>

@@ -6,6 +6,7 @@ InventoryStockManager::Application.routes.draw do
 
   resources :categories
   resources :products
+  resources :items
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

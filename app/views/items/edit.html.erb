@@ -1,0 +1,41 @@
+<h1>New Item</h1>
+
+<%= form_for(@item) do |f| %>
+    <p>
+      <%= f.label :product_id %><br/>
+      <%= f.select :product_id, options_for_select(Product.all.map { |p| [p.name, p.id] }) %>
+    </p>
+    <p>
+      <%= f.label :action %><br/>
+      <%= f.select :action, options_for_select(ACTION) %>
+    </p>
+    <p>
+      <%= f.label :qty, 'Quantity' %><br/>
+      <%= f.text_field :qty %>
+    </p>
+    <p>
+      <%= f.label :unit_price %><br/>
+      <%= f.text_field :unit_price %>
+    </p>
+    <p>
+      <%= f.label :tax %><br/>
+      <%= f.text_field :tax %>
+    </p>
+    <p>
+      <%= f.label :transaction_date %><br/>
+      <%= f.text_field :transaction_date %>
+    </p>
+    <p>
+      <%= f.submit 'Update' %>
+    </p>
+<% end %>
+
+
+<%= link_to 'Show', @item %> |
+<%= link_to 'Back', items_path %>
+
+<script>
+    $(function() {
+        $("#item_transaction_date").datepicker();
+    });
+</script>

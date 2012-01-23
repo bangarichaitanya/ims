@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product_id: 1
+  qty: 1
+  unit_price: 9.99
+  tax: 9.99
+  action: MyString
+
+two:
+  product_id: 1
+  qty: 1
+  unit_price: 9.99
+  tax: 9.99
+  action: MyString
